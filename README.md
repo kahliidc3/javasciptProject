@@ -1,1 +1,1 @@
-# javasciptcoursera
+# javasciptProject
