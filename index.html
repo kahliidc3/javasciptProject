@@ -1,28 +1,82 @@
 
-<link rel="stylesheet" type="text/css" href="css/billing.css">
-<script type="text/javascript" src="js/billing.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Information Form</title>
+    <!-- Add Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md mx-auto">
+        <h1 class="text-3xl font-bold text-center text-gray-900 mb-6">Shipping & Billing Information</h1>
+        <p class="text-gray-600 text-center mb-8">Fill out your shipping information below. Check the box if billing information is the same as shipping.</p>
 
+        <form class="bg-white shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4">
+            <fieldset class="mb-6 border border-gray-200 rounded-md p-4">
+                <legend class="font-semibold text-gray-700 px-2">Shipping Information</legend>
+                <div class="mb-4">
+                    <label for="shippingName" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                    <input type="text" 
+                           name="shipName" 
+                           id="shippingName" 
+                           required 
+                           placeholder="Enter full name"
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div class="mb-4">
+                    <label for="shippingZip" class="block text-gray-700 text-sm font-bold mb-2">Zip code:</label>
+                    <input type="text" 
+                           name="shipZip" 
+                           id="shippingZip" 
+                           pattern="[0-9]{5}" 
+                           required 
+                           placeholder="5-digit zip code"
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+            </fieldset>
 
-<h1>JavaScript Homework</h1>
-	<p>Add the JavaScript code needed to enable auto-complete on this form.  Whenever the checkbox is checked, the code should automatically copy the values from Shipping Name and Shipping Zip into the Billing Name and Billing Zip.  If the checkbox is unchecked, the Billing Name and Billing Zip should go blank.</p>
+            <div class="flex items-center mb-6">
+                <input type="checkbox" 
+                       id="same" 
+                       name="same" 
+                       onchange="billingFunction()"
+                       class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                <label for="same" class="ml-2 block text-sm text-gray-700">Same as shipping information</label>
+            </div>
+            
+            <fieldset id="billingFields" class="mb-6 border border-gray-200 rounded-md p-4">
+                <legend class="font-semibold text-gray-700 px-2">Billing Information</legend>
+                <div class="mb-4">
+                    <label for="billingName" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                    <input type="text" 
+                           name="billName" 
+                           id="billingName" 
+                           required 
+                           placeholder="Enter full name"
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div class="mb-4">
+                    <label for="billingZip" class="block text-gray-700 text-sm font-bold mb-2">Zip code:</label>
+                    <input type="text" 
+                           name="billZip" 
+                           id="billingZip" 
+                           pattern="[0-9]{5}" 
+                           required 
+                           placeholder="5-digit zip code"
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+            </fieldset>
 
-<form>
-		<fieldset>
-			<legend>Shipping Information</legend>
-			<label for ="shippingName">Name:</label>
-			<input type = "text" name = "shipName" id = "shippingName" required><br/>
-			<label for = "shippingZip">Zip code:</label>
-			<input type = "text" name = "shipZip" id = "shippingZip" pattern = "[0-9]{5}" required><br/>
-		</fieldset>
-		<input type="checkbox" id="same" name="same" onchange= "billingFunction()"/>
-		<label for = "same">Is the Billing Information the Same?</label>
-				
-		<fieldset> 
-			<legend>Billing Information</legend>
-			<label for ="billingName">Name:</label>
-			<input type = "text" name = "billName" id = "billingName" required><br/>
-			<label for = "billingZip">Zip code:</label>
-			<input type = "text" name = "billZip" id = "billingZip" pattern = "[0-9]{5}" required><br/>
-		</fieldset>
-			<input type = "submit" value = "Verify"/>
-		</form>
+            <div class="flex items-center justify-center">
+                <input type="submit" 
+                       value="Submit Order"
+                       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+            </div>
+        </form>
+    </div>
+
+    <script src="js/billing.js"></script>
+</body>
+</html>
